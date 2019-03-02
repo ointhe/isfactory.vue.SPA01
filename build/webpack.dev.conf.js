@@ -28,15 +28,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
                 { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
             ],
         },
+        inline: true,
+        port: 8080,
         hot: true,
         contentBase: false, // since we use CopyWebpackPlugin.
         compress: true,
         host: HOST || config.dev.host,
         port: PORT || config.dev.port,
         open: config.dev.autoOpenBrowser,
-        overlay: config.dev.errorOverlay ?
-            { warnings: false, errors: true } :
-            false,
+        overlay: config.dev.errorOverlay ? { warnings: false, errors: true } : false,
         publicPath: config.dev.assetsPublicPath,
         proxy: config.dev.proxyTable,
         quiet: true, // necessary for FriendlyErrorsPlugin
@@ -83,8 +83,7 @@ module.exports = new Promise((resolve, reject) => {
                     messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
                 },
                 onErrors: config.dev.notifyOnErrors ?
-                    utils.createNotifierCallback() :
-                    undefined
+                    utils.createNotifierCallback() : undefined
             }))
 
             resolve(devWebpackConfig)

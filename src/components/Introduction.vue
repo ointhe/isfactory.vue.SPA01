@@ -1,8 +1,4 @@
 <template>
-<!-- <div>
-  <section
-    id="introduction"
-  > -->
    <v-card dark color="white">
      <v-img src="../../../static/img/introduction_01.jpg" aspect-ratio="2.75">
           <v-container fill-height fluid>
@@ -15,10 +11,6 @@
           </v-container>
      </v-img>
    <v-card-title>
-     <!-- <v-icon color="black">mdi-format-quote-open</v-icon>
-     <span class="headlineintro">
-       {{introduction[0].title}}
-       </span> -->
    </v-card-title>
     <v-card-text>
       <v-flex xs10 offset-xs1>
@@ -32,11 +24,8 @@
     <v-img src="../../../static/img/com_introduction.jpg" alt="introduction" lazy-src="true"/>
     </v-flex>
     
-      <!-- {{introductions.content}} -->
     </v-card-text>
    </v-card>
-   <!-- </section>
-</div> -->
 </template>
 <script>
 export default {
@@ -70,5 +59,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
 </style>

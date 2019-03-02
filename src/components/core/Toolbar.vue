@@ -121,7 +121,7 @@ export default {
 <style>
 
 .custom-toolbar{
-    font-size: 500%;
+    font-size: 5vw;
     font-family: 'Righteous', cursive;
 }   
 </style>

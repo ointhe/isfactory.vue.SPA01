@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import HelloWorld from '@/components/HelloWorld';
 import Company from '@/components/Company';
+import Products from '@/components/Products';
 
 Vue.use(Router);
 
@@ -18,8 +19,8 @@ export default new Router({
         },
         {
             path: '/Products',
-            name: 'HelloWorld',
-            component: HelloWorld,
+            name: 'Products',
+            component: Products,
         },
         {
             path: '/Company',
