@@ -4,7 +4,7 @@
     <!-- <img src="./assets/logo.png"> -->
     <core-view/>
     <core-footer/>
-    <v-btn
+    <v-btn      class="topbtn"
                 v-show="!hidden"
                 color="primary"
                 href="#app"
@@ -15,7 +15,6 @@
               >
                 <v-icon>mdi-arrow-up-thick</v-icon>
               </v-btn>
-              <p fixed bottom left class="black--text">{{hidden}}</p>
   </v-app>
 </template>
 
@@ -47,6 +46,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Righteous');
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans');
 /* #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

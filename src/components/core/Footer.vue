@@ -1,5 +1,5 @@
 <template>
-  <v-footer
+  <v-footer 
     height="88"
     class="justify-center"
   >

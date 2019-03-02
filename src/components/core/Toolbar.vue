@@ -8,7 +8,7 @@
     <!-- </v-toolbar-side-icon>     -->
     <v-spacer></v-spacer>
     <router-link to="/" >
-    <v-toolbar-title class="white--text">TANSY</v-toolbar-title>
+    <v-toolbar-title class="white--text custom-toolbar">TANSY</v-toolbar-title>
     </router-link>
     <v-spacer></v-spacer>
 
@@ -94,6 +94,13 @@ export default {
     }),
 
     methods: {
+      created() {
+        console.log("SCREEN : "+window.screen.width);
+      },
+      mounted() {
+        
+        if(window.screen.width < 640) alert(window.screen.width);
+      },
         // goItem(item){
         //      axios.get('http://localhost:8080/#/'+item)
         //         .then(result => this.msg = item);
@@ -113,7 +120,7 @@ export default {
 
 <style>
 
-.white--text{
+.custom-toolbar{
     font-size: 500%;
     font-family: 'Righteous', cursive;
 }   

@@ -1,12 +1,10 @@
 <template>
-<section class="history">
-  
   <v-card dark color="white">
     <v-img src="../../../static/img/timeline_02.jpg" aspect-ratio="2.75">
           <v-container fill-height fluid>
             <v-layout align-end fill-height>
               <v-flex sm4>
-                <span class="headlineintro">{{introduction.title}}</span>
+                <span class="headlineintro">{{title}}</span>
                 <v-icon color="white" class="iconshadow" >mdi-feather</v-icon>
               </v-flex>
             </v-layout>
@@ -68,7 +66,6 @@
     </v-timeline-item>
   </v-timeline> -->
   </v-card>
-  </section>
 </template>
 
 <script>
@@ -76,9 +73,7 @@ import Timeline from "timeline-vuejs";
 export default {
   name: 'History',
   data: () => ({
-    introduction: {
-      title: "TIMELINE",
-    },
+    title: "TIMELINE",
     messageWhenNoItems: "There arent items",
     dataTimeline: [
       {
@@ -276,7 +271,4 @@ export default {
 }
 </script>
 <style>
-.history{
-  margin-top : 100px;
-}
 </style>
