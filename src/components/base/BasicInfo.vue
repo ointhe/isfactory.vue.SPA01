@@ -1,5 +1,5 @@
 <template>
-   <v-card dark color="white">
+   <v-card dark color="white" >
      <!-- <v-img v-if="param.basicinfo[0].imageurl != null" v-bind:src="param.basicinfo[0].imageurl" aspect-ratio="2.75">
         <img-headline :title="title"/>
      </v-img> -->

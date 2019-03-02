@@ -1,5 +1,5 @@
 <template>
-<div class="test">
+<div id="basicform">
   <v-container v-scroll="onScrollDown"> 
     <v-layout
       align-center
@@ -7,32 +7,27 @@
       row 
       style="margin-top: 0px; margin-bottom: 20px;" 
     >
-      <v-tabs fixed-tabs v-model="step" color="rgba(255, 255, 255, 0.7)" active-class="customselected" hide-slider=true :class="{ topFixBannerFixed : isScrolldown }" style="border-radius: 100px;"> 
-        <!-- <v-btn
-          flat
-          @click="prev"
-        >
-          <v-icon>mdi-chevron-left</v-icon>
-        </v-btn> -->
+      <v-tabs fixed-tabs v-model="step"
+      color="rgba(255, 255, 255, 0.7)" 
+      active-class="customselected" 
+      hide-slider
+      :class="{ topFixBannerFixed : isScrolldown }" 
+      style="border-radius: 100px;"> 
         <v-tab
           :key="index"
-          v-for="(title, index) in tabtitle"           
+          v-for="(title, index) in tabtitle"
+          @click="onTabsClick(title)"
         >{{title}}
         </v-tab>
-        <!-- <v-btn
-          flat
-          @click="next"
-        >
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn> -->
       </v-tabs>      
     </v-layout>
-    <v-window v-model="step"
-      v-for="(content,index) in contents"
-      :key="index"
-    >
-      <v-window-item :value="index">
-        <component :is="content.componentName" :title="content.title" :param="content.paramContent[index]"></component>
+    
+    <v-window v-model="step">
+      <v-window-item v-for="(content,index) in contents"
+      :key="index" :value="(index)">
+        <component 
+         :is="content.componentName" :title="content.title" :param="content.paramContent[0]">
+         </component>
       </v-window-item>
     </v-window>
   </v-container>
@@ -43,20 +38,23 @@
 export default {
     name:'BasicForm',
     props:{
-      contents: {type: Array,required: true,},
-      tabtitle: {type: Array,required: true,},      
+      contents: { type: Array, required: true,},
+      tabtitle: { type: Array, required: true,},      
     },
     props: ['contents', 'tabtitle'],       
     data: () => ({
-      step:0,
+      step: 0,
       isScrolldown: false,
     }),
     components:{
       Basicinfo: () => import('@/components/base/BasicInfo'),
       Timeline: () => import('@/components/base/Timeline'),
-      LocationMap: () => import('@/components/base/Location'),
+      LocationMap: () => import('@/components/base/LocationMap'),
     },
     methods:{
+      onTabsClick(title){
+        window.location.href = '#basicform';
+      },
       // next () {
       //   this.step = (this.step+1) == this.contents.length
       //     ? 0 : this.step + 1
@@ -103,9 +101,9 @@ export default {
   color: black;
 }
 .customselected{
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.8);
     color: white;
-    margin-bottom: 10px;
+    padding-bottom: 1.0vw;
 }
 .topFixBannerFixed {
     position: fixed;
@@ -114,6 +112,12 @@ export default {
     padding-top: 10px;
     height: 60px;
     border-radius: 100px;
+}
+.topFixBannerLeft{
+  border-radius: 100px 100px 0px 0px;
+}
+.topFixBannerRight{
+  border-radius: 0px 0px 100px 100px;
 }
 </style>
 

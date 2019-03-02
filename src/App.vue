@@ -4,17 +4,19 @@
     <!-- <img src="./assets/logo.png"> -->
     <core-view/>
     <core-footer/>
-    <v-btn      class="topbtn"
-                v-show="!hidden"
-                color="primary"
-                href="#app"
-                fixed
-                bottom
-                right
-                fab
+    <transition name="fade">
+    <v-btn class="topbtn"
+           v-show="!hidden"
+           color="primary"
+           href="#app"
+           fixed
+           bottom
+           right
+           fab
               >
-                <v-icon>mdi-arrow-up-thick</v-icon>
-              </v-btn>
+       <v-icon>mdi-arrow-up-thick</v-icon>
+    </v-btn>
+    </transition>
   </v-app>
 </template>
 
@@ -29,17 +31,16 @@ export default {
   },
   data() {
     return {
-      hidden: true
-    }
+      hidden: true,
+    };
   },
   methods: {
-      onScroll() {
-        // alert(e.target.scrollTop);
-        if(window.scrollY < 100) this.hidden = true;
-        else this.hidden = false;
-      }
-    }
-  
+    onScroll() {
+      // alert(e.target.scrollTop);
+    if (window.scrollY < 100) this.hidden = true;
+    else this.hidden = false;
+    },
+  },
 };
 </script>
 
@@ -55,5 +56,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 } */
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>

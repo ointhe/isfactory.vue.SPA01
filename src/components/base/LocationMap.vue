@@ -1,39 +1,20 @@
 <template>
-    
     <v-card class="location" dark color="white">
       <img-headline :title="title" :imageurl="param.location[0].imageurl"/>
-      <!-- <v-img src="../../../static/img/location_01.jpg" aspect-ratio="2.75">
-          <v-container fill-height fluid>
-            <v-layout align-end fill-height>
-              <v-flex sm4>
-                <span class="headlineintro">{{title}}</span>
-                <v-icon color="white" class="iconshadow" >mdi-feather</v-icon>
-              </v-flex>
-            </v-layout>
-          </v-container>
-     </v-img> -->
    <v-flex xs10 offset-xs1 class="customgmap">
-       <p class="text-sm-left black--text">
-         {{ param.location[0].coment }}
+       <p v-if="param.location[0].comment != null "class="text-sm-left black--text" style="padding: 2vw;">
+        {{ param.location[0].comment }}
        </p>
-      <!-- <label>
-        <gmap-autocomplete
-          @place_changed="setPlace">
-        </gmap-autocomplete>
-        <button @click="addMarker">Add</button>
-      </label> -->
-      <br/>
-    <br>
     <gmap-map ref="mapRef" class="customgmap"
-      :center="center"
+      :center="param.location[0].center"
       :zoom="17"
       style="width:100%;  height: 400px;"
     >
       <gmap-marker
         :key="index"
-        v-for="(m, index) in markers"
+        v-for="(m, index) in param.location[0].markers"
         :position="m.position"
-        @click="center=m.position"
+        @click="param.location[0].center=m.position"
       ></gmap-marker>
     </gmap-map>
     </v-flex>
@@ -43,34 +24,38 @@
 <script>
 export default {
   name: "GoogleMap",
-  props:{
+  props: {
     title: {type: String, default: "TITLE"},
-    param: {type: Array, required: true},
+    param: {type: Object, default: {
+          location: [{
+                  imageurl : "../../../static/img/location_01.jpg" ,
+                  center: { lat: 37.4738077, lng: 126.88531 },
+                  markers: [{
+                      position:{
+                        lat: 37.4738077,
+                        lng: 126.88531
+                      }
+                    },
+                  ],
+                  comment: "찾아오시는 길 : 서울 금천구 가산동 345-50 IT프리미어타워 701호",
+          }],
+    }},
   },
-  props:['title','param'],
+  props: ['title','param'],
   data() {
     return {
       // default to Montreal to keep it simple
       // change this to whatever makes sense
-      title:"LOCATION",
-      center: { lat: 37.4738077, lng: 126.88531 },
-      markers: [{
-          position:{
-              lat: 37.4738077,
-              lng: 126.88531
-          }
-         },
-      ],
       places: [],
       currentPlace: null
     };
   },
-
+  components:{
+    ImgHeadline: () => import('@/components/base/ImgHeadline'),
+  },
   mounted() {
-    if(param.location[0].center != null) this.center = param.location[0].center;
-    if(param.location[0].markers != null) this.markers = param.location[0].markers;
     this.$refs.mapRef.$mapPromise.then((map) => {
-      map.panTo({ lat: this.center.lat, lng: this.center.lng })
+      map.panTo({ lat: param.location[0].center.lat, lng: param.location[0].center.lng })
     })
     
     // this.geolocate();
@@ -87,15 +72,15 @@ export default {
           lat: this.currentPlace.geometry.location.lat(),
           lng: this.currentPlace.geometry.location.lng()
         };
-        this.markers.push({ position: marker });
+        param.location[0].markers.push({ position: marker });
         this.places.push(this.currentPlace);
-        this.center = marker;
+        param.location[0].center = marker;
         this.currentPlace = null;
       }
     },
     geolocate: function() {
       navigator.geolocation.getCurrentPosition(position => {
-        this.center = {
+        param.location[0].center = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
@@ -107,6 +92,6 @@ export default {
 
 <style>
 .customgmap{
-  padding-bottom: 20px;
+  padding-bottom: 2vw;
 }
 </style>
