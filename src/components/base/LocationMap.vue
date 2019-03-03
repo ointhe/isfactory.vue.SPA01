@@ -54,9 +54,9 @@ export default {
     ImgHeadline: () => import('@/components/base/ImgHeadline'),
   },
   mounted() {
-    this.$refs.mapRef.$mapPromise.then((map) => {
-      map.panTo({ lat: param.location[0].center.lat, lng: param.location[0].center.lng })
-    })
+    // this.$refs.mapRef.$mapPromise.then((map) => {
+    //   map.panTo({ lat: param.location[0].center.lat, lng: param.location[0].center.lng })
+    // })
     
     // this.geolocate();
   },

@@ -1,10 +1,10 @@
 <template>
 <div id="basicform">
   <v-container v-scroll="onScrollDown"> 
-    <v-layout v-if="tabtitle != null" 
+    <v-layout
       align-center
       justify-center
-      row 
+      row
       style="margin-top: 0px; margin-bottom: 20px;" 
     >
       <v-tabs fixed-tabs v-model="step"
@@ -22,7 +22,7 @@
       </v-tabs>      
     </v-layout>
     
-    <v-window v-model="step">
+    <v-window>
       <v-window-item v-for="(content,index) in contents"
       :key="index" :value="(index)">
         <component 
@@ -36,10 +36,10 @@
 
 <script>
 export default {
-    name:'BasicForm',
+    name:'SearchForm',
     props:{
       contents: { type: Array, required: true,},
-      tabtitle: { type: Array, },      
+      tabtitle: { type: Array, required: true,},      
     },
     props: ['contents', 'tabtitle'],       
     data: () => ({
@@ -54,6 +54,8 @@ export default {
     },
     methods:{
       onTabsClick(title){
+        this.$EventBus.$emit('messagesearch', title);
+        
         if(window.scrollY > 150){
           window.location.href = '#basicform';
         }

@@ -14,7 +14,7 @@ import '@mdi/font/css/materialdesignicons.min.css'
 import 'es6-promise/auto'
 
 Vue.config.productionTip = false;
-
+Vue.prototype.$EventBus = new Vue();
 /* eslint-disable no-new */
 new Vue({
     el: '#app',

@@ -22,10 +22,7 @@
     <v-btn icon>
       <v-icon>mdi-refresh</v-icon>
     </v-btn>
-
-    <v-btn icon>
-      <v-icon>mdi-code-tags</v-icon>
-    </v-btn>
+    <color-picker-wheel></color-picker-wheel>
       <v-tabs
         slot="extension"
         v-model="currentItem"
@@ -79,6 +76,7 @@ export default {
     // CoreFooter: () => import('@/components/core/Footer'),
     // CoreToolbar: () => import('@/components/core/Toolbar'),
     // CoreView: () => import('@/components/core/View')
+    ColorPickerWheel: () => import('@/components/base/ColorPickerWheel'),
     PopoverMenu: () => import('@/components/core/PopoverMenu')
   },
   data: () => ({

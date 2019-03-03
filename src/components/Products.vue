@@ -1,36 +1,168 @@
 <template>
-    <basic-form :tabtitle="tabtitle" :contents="paramContents"/>
+    <search-form :tabtitle="tabtitle" :contents="paramContents"/>
 </template>
 <script>
 export default {
     name: "Product",
     data:()=>({
-        tabtitle: ["회계정보시스템","TIMELINE","ABCD","EFGH","ZZZZ"],
+        tabtitle: ["A I S","TIMELINE","ABCD","EFGH","ZZZZ"],
         paramContents:[
         {
-            componentName:"Basicinfo",
-            title: "AIS Summary",
+            componentName:"TreeViewForm",
+            title: "A I S",
             paramContent:[{
-                basicinfo: [{
-                imageurl : "../../../static/img/location_01.jpg" ,
-                contents: [{
-                    part:0,
-                    content:"당사는 분산 환경을 위한 다양한 솔루션과 서비스, Host 시스템에 설치되어 있는 소프트웨어 자원의 내역과 사용 패턴을 정확하고 완벽한 정보를 제공하는 전문 업체입니다."
-                    },
-                    { part:1,
-                    content:"대규모 분산 클라이언트/서버 환경하에서 OLTP 기능을 이용하여 n-tier 환경을 빠른 시간안에 구축할 수 있는 Magnax, GenManager와 기업의 legacy 중심의 기 업무와 비즈니스 로직을 지속적으로 사용하면서 XML문서나 COM, java, .Net과 같은 표준 오브젝트 프로그램과 인터페이스 할 수 있는 신 기술을 제공하는 ApplinX, 소프트웨어의 자산과 활용도에 대한 정보를 제공함으로써 소프트웨어 비용을 절감할 수 있는 방법을 제공하는 SA/390 등의 툴들을 취급하고 있으며, 소프트웨어 공급과 함께 기술 및 노하우를 제공하는데 주력을 두고 있습니다."
-                    } ,
-                    {
-                    part:2,
-                    content:"당사는 IT 솔루션을 제공하는 업계의 선두 주자 , 최고의 기술을 자부하는 전문 인력을 보유, 고객의 요구를 100% 수용할 수 있는 기술력 보유, 고객 만족도 보증 제도를 통한 90% 이상의 고객 만족 달성, 각 IT 부문별 협력 체제를 도모 융통성 있는 기술 지원, 신사고/ 신 개념에 의한 개발 및 벤처 인큐베이터, 전문 기술 인력 양성을 위한 교육 제도라는 신조를 가지고 언제나 최선을 다할 것을 약속 드립니다. "
-                    }]
-                }],
+                items: [
+                        {
+                        id: 1,
+                        name: 'PRODUCT',
+                        children: [
+                            {
+                            id: 2,
+                            name: '회계 정보 시스템 (AIS)',
+                            children: [
+                                {
+                                id: 201,
+                                name: 'Master관리',
+                                children:[{
+                                    id: 2011,
+                                    name: '계정과목, 거래처, 사원, 부서, 법인카드, 기타코드 관리'
+                                },]
+                                },
+                                {
+                                id: 202,
+                                name: '전표 관리 ',
+                                children:[{
+                                    id: 2012,
+                                    name: '전표 검색, 전표승인, 전표승인해제, 전표취소, 마감관리,현황 판 관리'
+                                },]
+                                },{
+                                id: 203,
+                                name: '일반회계관리',
+                                children:[{
+                                    id: 2013,
+                                    name: '대체전표입력,자동본지점전표,총계정~전표 행 추적관리, 보조부,관리보조부 '
+                                },]
+                                },{
+                                id: 204,
+                                name: '채권/채무관리',
+                                children:[{
+                                    id: 2014,
+                                    name: '거래처별,채권/채무관리,상계계정 Line Item관리,가수금정산'
+                                },]
+                                },{
+                                id: 205,
+                                name: '유형업무지원',
+                                children:[{
+                                    id: 2015,
+                                    name: '경비 정산,전불 전표,법인카드 지급,Interface전표 자동발생 및 관리 '
+                                },]
+                                },{
+                                id: 206,
+                                name: '자산관리',
+                                children:[{
+                                    id: 2016,
+                                    name: '고정자산 현황/변동관리 및 자동전표, 감가상각자동전표,감상비 추정 '
+                                },]
+                                },{
+                                id: 207,
+                                name: '자금관리',
+                                children:[{
+                                    id: 2017,
+                                    name: '원인전표와지급전표분리,입출금 및 일별현황관리 / 시재관리(은행의 거래장부와 일치),미수수익(이자)자동전표,자동본지점전표 '
+                                },]
+                                },{
+                                id: 208,
+                                name: '예산관리',
+                                children:[{
+                                    id: 2018,
+                                    name: '예산통제,부서별 예산대비 실적 집계,예산편성,예산조정 '
+                                },]
+                                },{
+                                id: 209,
+                                name: '결산관리',
+                                children:[{
+                                    id: 2019,
+                                    name: '가결산(추정결산)기능,재무제표 작성및검증기능,비교/기간별 재무제표 제공 '
+                                },]
+                                },{
+                                id: 210,
+                                name: '세무지원',
+                                children:[{
+                                    id: 2020,
+                                    name: '부가세,원천세,기부금,접대비 등 세무신고작업지원 '
+                                },]
+                                },{
+                                id: 211,
+                                name: '보안관리',
+                                children:[{
+                                    id: 2021,
+                                    name: '개인단위 화면별 통제기능 '
+                                },]
+                                },{
+                                id: 212,
+                                name: '보고서관리',
+                                children:[{
+                                    id: 2022,
+                                    name: '보고서 목록관리, 모든 보고서의 Excel Down-Load기능 '
+                                },]
+                                },
+                            ]
+                            },
+                            {
+                            id: 3,
+                            name: 'PretonServer',
+                            children: [
+                                {
+                                id: 301,
+                                name: '품질',
+                                children:[{
+                                    id: 3001,
+                                    name: 'PretonSaver를 통한 프린팅 작업들은 프린트품질을 최상으로 유지한다.'
+                                }]
+                                },{
+                                id: 302,
+                                name: '유저인터페이스 ',
+                                children:[{
+                                    id: 3002,
+                                    name: 'PretonSaver의 사용자들은 별도의 유저인터페이스가 필요하거나 오버헤드가 요구되어지지 않는다.'
+                                }]
+                                },{
+                                id: 303,
+                                name: '최대절약 ',
+                                children:[{
+                                    id: 3003,
+                                    name: 'PretonSaver의 잉크/토너 절약 알고리즘을 통해 25%-45% 의 실질적인 절약이 가능하다 '
+                                }]
+                                },
+                            ]
+                            },
+                            {
+                            id: 4,
+                            name: 'Contributors',
+                            children: [
+                                {
+                                id: 401,
+                                name: 'Phlow'
+                                },
+                                {
+                                id: 402,
+                                name: 'Brandon'
+                                },
+                                {
+                                id: 403,
+                                name: 'Sean'                                                   
+                                }
+                            ]
+                            }
+                        ]
+                        },
+                    ],
             }]
         },
         ],
     }),
     components:{
-        BasicForm: () => import('@/components/base/BasicForm'),
+        SearchForm: () => import('@/components/base/SearchForm'),
     }
 }
 </script>

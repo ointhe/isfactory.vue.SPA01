@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import HelloWorld from '@/components/HelloWorld';
 import Company from '@/components/Company';
 import Products from '@/components/Products';
+import ContactUs from '@/components/ContactUs';
+import Recruit from '@/components/Recruit';
 
 Vue.use(Router);
 
@@ -29,13 +31,13 @@ export default new Router({
         },
         {
             path: '/Contact us',
-            name: 'HelloWorld',
-            component: HelloWorld,
+            name: 'ContactUs',
+            component: ContactUs,
         },
         {
             path: '/Recruit',
-            name: 'Company',
-            component: Company,
+            name: 'Recruit',
+            component: Recruit,
         },
     ],
 });
